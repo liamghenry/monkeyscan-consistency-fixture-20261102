@@ -1,4 +1,4 @@
-"""Intentionally vulnerable, non-deployed fixture for scanner testing."""
+"""Small Flask application used for scan testing."""
 
 import sqlite3
 
