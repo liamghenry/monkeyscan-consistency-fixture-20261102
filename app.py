@@ -14,8 +14,8 @@ def find_users(name: str) -> list[dict]:
     connection = sqlite3.connect(app.config['DATABASE'])
     connection.row_factory = sqlite3.Row
     try:
-        query = "SELECT id, name FROM users WHERE name = '" + name + "'"
-        rows = connection.execute(query).fetchall()
+        query = "SELECT id, name FROM users WHERE name = ?"
+        rows = connection.execute(query, (name,)).fetchall()
         return [dict(row) for row in rows]
     finally:
         connection.close()
